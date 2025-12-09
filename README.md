@@ -1,7 +1,20 @@
 # scikitlearn-hello-world
 
-Tiny “hello world” example for supervised learning with scikit-learn:  
+Tiny “hello world” example in main.py for supervised learning with scikit-learn:  
 a decision tree that classifies fruits as **apple** or **orange** based on weight and texture.
+
+The file concrete_strenth.py uses pandas and scikit-learn to build a regression model that predicts concrete compressive strength based on mixture ingredients (cement, water, slag, fly ash, aggregates, etc.).
+
+The dataset comes from the UCI Machine Learning Repository and is included in this repository under concrete/.
+
+The project includes:
+
+- Data loading and exploration (head, describe, correlations, shape)
+- Train/test split with train_test_split
+- Feature scaling with StandardScaler
+- Model training using RandomForestRegressor
+- Performance evaluation using MSE, RMSE, R²
+- Feature importance analysis
 
 ---
 
@@ -10,7 +23,7 @@ a decision tree that classifies fruits as **apple** or **orange** based on weigh
 If you just want to run the example without installing anything locally:
 
 ```bash
-docker run --rm ghcr.io/cmu-12780/scikitlearn-hello-world:main
+docker run --rm ghcr.io/cmu-12780/scikitlearn-hello-world:concrete_strength
 ```
 
 You should see predictions for a couple of example fruits printed to the terminal.
@@ -21,10 +34,10 @@ You should see predictions for a couple of example fruits printed to the termina
 If that fails (e.g., tag not found), you can build the image locally:
 
 ```bash
-git clone https://github.com/CMU-12780/scikitlearn-hello-world.git
+git clone https://github.com/pa-yu/scikitlearn-hello-world.git
 cd scikitlearn-hello-world
-docker build -t scikitlearn-hello-world .
-docker run --rm scikitlearn-hello-world
+pip install -r requirements.txt
+python concrete_strength.py
 ```
 
 ## Run in GitHub Codespaces
@@ -38,7 +51,7 @@ Wait for the dev container to build (it uses .devcontainer/devcontainer.json and
 In the Codespaces terminal, run:
 
 ```bash
-python main.py
+python concrete_strength.py
 ```
 
 ---
